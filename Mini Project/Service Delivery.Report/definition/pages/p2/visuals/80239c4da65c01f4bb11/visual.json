@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "80239c4da65c01f4bb11",
   "position": {
     "x": 405.35923734724986,
@@ -10,7 +10,7 @@
     "tabOrder": 10002
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
