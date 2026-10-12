@@ -9,6 +9,12 @@
           "name": "Total Ridership",
           "dataType": "Double",
           "expression": "SUM(fact_ridership_daily[ridership])"
+        },
+        {
+          "name": "total",
+          "dataType": "Double",
+          "expression": "COUNTROWS(_Measures)",
+          "formatString": "General Number"
         }
       ]
     }
