@@ -8,8 +8,7 @@
         {
           "name": "Total Ridership",
           "dataType": "Double",
-          "expression": "SUM(fact_ridership_daily[ridership])",
-          "formatString": "General Number"
+          "expression": "SUM(fact_ridership_daily[ridership])"
         }
       ]
     }
