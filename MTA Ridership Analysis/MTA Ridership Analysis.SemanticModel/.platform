@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "MTA Ridership Analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1e9971cc-c516-46dd-a898-68f27080132f"
+  }
+}
