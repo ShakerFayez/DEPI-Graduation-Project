@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
   "version": "4.0",
   "datasetReference": {
-    "byPath": {
-      "path": "../MTA Ridership Analysis.SemanticModel"
+    "byConnection": {
+      "connectionString": "Data Source=powerbi://api.powerbi.com/v1.0/myorg/DEPI;initial catalog=sm_mta_ridership;access mode=readonly;integrated security=ClaimsToken;semanticmodelid=b16e4ccf-f46d-4ece-926e-7b61a8472e30"
     }
   }
 }
