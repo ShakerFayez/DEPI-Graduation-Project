@@ -1,16 +1,44 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v1",
   "position": {
     "x": 132,
     "y": 96,
     "z": 1000,
     "height": 64,
-    "width": 428,
+    "width": 423,
     "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "year"
+                }
+              },
+              "queryRef": "dim_date.Date Hierarchy.year",
+              "nativeQueryRef": "Date Hierarchy year",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -38,7 +66,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filter 1'"
+                  "Value": "'Year'"
                 }
               }
             },
@@ -64,6 +92,13 @@
                       "Value": "'#607384'"
                     }
                   }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -106,6 +141,19 @@
                       "Value": "'#ffffff'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -264,5 +312,28 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "844c862b3bef591eed79",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_date"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "year"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

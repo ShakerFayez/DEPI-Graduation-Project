@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v2",
   "position": {
-    "x": 578,
+    "x": 579,
     "y": 96,
     "z": 2000,
     "height": 64,
-    "width": 427,
+    "width": 423,
     "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_station"
+                    }
+                  },
+                  "Property": "borough"
+                }
+              },
+              "queryRef": "dim_station.borough",
+              "nativeQueryRef": "borough",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -38,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filter 2'"
+                  "Value": "'Borough'"
                 }
               }
             },
@@ -64,6 +87,13 @@
                       "Value": "'#607384'"
                     }
                   }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -106,6 +136,19 @@
                       "Value": "'#ffffff'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -264,5 +307,23 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "42c4b62ba4950318dcca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_station"
+              }
+            },
+            "Property": "borough"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

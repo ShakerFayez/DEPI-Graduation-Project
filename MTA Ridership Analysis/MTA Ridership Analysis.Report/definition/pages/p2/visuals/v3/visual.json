@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v3",
   "position": {
-    "x": 1023,
+    "x": 1026,
     "y": 96,
     "z": 3000,
     "height": 64,
-    "width": 428,
+    "width": 423,
     "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_station"
+                    }
+                  },
+                  "Property": "transit_mode"
+                }
+              },
+              "queryRef": "dim_station.transit_mode",
+              "nativeQueryRef": "transit_mode",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -38,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filter 3'"
+                  "Value": "'Transit Mode'"
                 }
               }
             },
@@ -64,6 +87,13 @@
                       "Value": "'#607384'"
                     }
                   }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -264,5 +294,23 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "24328e68f0d417164a9b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_station"
+              }
+            },
+            "Property": "transit_mode"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
