@@ -1,16 +1,74 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "v6",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "1cb01bc87e73718d49cf",
   "position": {
-    "x": 726,
-    "y": 178,
-    "z": 6000,
-    "height": 185,
-    "width": 576,
-    "tabOrder": 6000
+    "x": 428,
+    "y": 182,
+    "z": 14000,
+    "height": 124,
+    "width": 278,
+    "tabOrder": 14000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Schema": "extension",
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% Change vs Pre-COVID Baseline"
+                }
+              },
+              "queryRef": "_Measures.% Change vs Pre-COVID Baseline",
+              "nativeQueryRef": "% Change vs Pre-COVID Baseline",
+              "format": "0.00%;-0.00%;0.00%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Schema": "extension",
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "% Change vs Pre-COVID Baseline"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -107,7 +165,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'KPI card 6'"
+                  "Value": "'Target Recovery (2019)'"
                 }
               }
             },

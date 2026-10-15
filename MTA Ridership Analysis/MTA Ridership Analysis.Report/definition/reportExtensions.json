@@ -8,8 +8,202 @@
         {
           "name": "Total Ridership",
           "dataType": "Double",
-          "expression": "SUM(fact_ridership_daily[ridership])",
-          "formatString": "General Number"
+          "expression": "SUM(fact_ridership_daily[ridership])"
+        },
+        {
+          "name": "Average Daily Ridership",
+          "dataType": "Double",
+          "expression": "AVERAGEX(VALUES(dim_date[date]),[Total Ridership])",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Pre-COVID Baseline 2019",
+          "dataType": "Double",
+          "expression": "\nCALCULATE(\n    [Average Daily Ridership],\n    REMOVEFILTERS('dim_date'[date]),\n    'dim_date'[date] >= DATE(2019, 1, 1),\n    'dim_date'[date] < DATE(2020, 1, 1)\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Ridership vs Pre-COVID Baseline",
+          "dataType": "Double",
+          "expression": "\n    [Average Daily Ridership] - [Pre-COVID Baseline 2019]",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Pre-COVID Baseline 2019"
+              }
+            ]
+          }
+        },
+        {
+          "name": "% Change vs Pre-COVID Baseline",
+          "dataType": "Double",
+          "expression": "\nDIVIDE(\n    [Ridership vs Pre-COVID Baseline],\n    [Pre-COVID Baseline 2019]\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Ridership vs Pre-COVID Baseline"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Pre-COVID Baseline 2019"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Previous Year Total Ridership",
+          "dataType": "Double",
+          "expression": "\nCALCULATE(\n    [Total Ridership],\n    SAMEPERIODLASTYEAR('dim_date'[date])\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "YoY Ridership Change",
+          "dataType": "Double",
+          "expression": "\n    [Total Ridership] - [Previous Year Total Ridership]",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Previous Year Total Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "YoY Ridership Change %",
+          "dataType": "Double",
+          "expression": "\nDIVIDE(\n    [YoY Ridership Change],\n    [Previous Year Total Ridership]\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "YoY Ridership Change"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Previous Year Total Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Average Daily Ridership YTD",
+          "dataType": "Double",
+          "expression": "\nCALCULATE(\n    [Average Daily Ridership],\n    DATESYTD('dim_date'[date])\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Previous Year Average Daily Ridership",
+          "dataType": "Double",
+          "expression": "\nVAR CurrentMaxDate =\n    MAX('dim_date'[date])\nVAR PreviousYearEndDate =\n    EDATE(CurrentMaxDate, -12)\nVAR PreviousYearStartDate =\n    DATE(YEAR(PreviousYearEndDate), 1, 1)\nRETURN\n    CALCULATE(\n        [Average Daily Ridership],\n        REMOVEFILTERS('dim_date'),\n        DATESBETWEEN(\n            'dim_date'[date],\n            PreviousYearStartDate,\n            PreviousYearEndDate\n        )\n    )",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "YTD Ridership Change",
+          "dataType": "Double",
+          "expression": "\n    [Average Daily Ridership YTD]\n        - [Previous Year Average Daily Ridership]",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership YTD"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Previous Year Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "YTD Ridership Change %",
+          "dataType": "Double",
+          "expression": "\nDIVIDE(\n    [YTD Ridership Change],\n    [Previous Year Average Daily Ridership]\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "YTD Ridership Change"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Previous Year Average Daily Ridership"
+              }
+            ]
+          }
         }
       ]
     }

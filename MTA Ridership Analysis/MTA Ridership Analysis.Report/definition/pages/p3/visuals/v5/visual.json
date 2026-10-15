@@ -1,16 +1,74 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "v5",
   "position": {
     "x": 132,
-    "y": 178,
-    "z": 5000,
-    "height": 185,
-    "width": 576,
-    "tabOrder": 5000
+    "y": 182,
+    "z": 3000,
+    "height": 124,
+    "width": 278,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Schema": "extension",
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Daily Ridership"
+                }
+              },
+              "queryRef": "_Measures.Average Daily Ridership",
+              "nativeQueryRef": "Average Daily Ridership",
+              "format": "G"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Schema": "extension",
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Average Daily Ridership"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -107,7 +165,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'KPI card 5'"
+                  "Value": "'Ave Daily Ridership'"
                 }
               }
             },
@@ -126,6 +184,32 @@
                       "Value": "'#0b2841'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
