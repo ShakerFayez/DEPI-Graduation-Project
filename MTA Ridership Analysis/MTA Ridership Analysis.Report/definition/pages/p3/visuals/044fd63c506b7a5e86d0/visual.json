@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "044fd63c506b7a5e86d0",
   "position": {
-    "x": 1086.391959798995,
-    "y": 621.3467336683417,
-    "z": 19000,
-    "height": 441.88944723618096,
-    "width": 808.52261306532671,
-    "tabOrder": 19000
+    "x": 1310,
+    "y": 622,
+    "z": 17000,
+    "height": 442,
+    "width": 586,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",
@@ -44,21 +44,6 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_station"
-                    }
-                  },
-                  "Property": "transit_mode"
-                }
-              },
-              "queryRef": "dim_station.transit_mode",
-              "nativeQueryRef": "transit_mode",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "dim_fare_class"
                     }
                   },
@@ -77,11 +62,11 @@
                       "Entity": "dim_station"
                     }
                   },
-                  "Property": "borough"
+                  "Property": "transit_mode"
                 }
               },
-              "queryRef": "dim_station.borough",
-              "nativeQueryRef": "borough",
+              "queryRef": "dim_station.transit_mode",
+              "nativeQueryRef": "transit_mode",
               "active": true
             }
           ]
@@ -119,6 +104,25 @@
         "levels": [
           {
             "queryRefs": [
+              "dim_fare_class.payment_method"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_fare_class"
+                    }
+                  },
+                  "Property": "payment_method"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
               "dim_station.transit_mode"
             ],
             "isCollapsed": true,
@@ -135,52 +139,6 @@
               }
             ],
             "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "dim_fare_class.payment_method"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_fare_class"
-                    }
-                  },
-                  "Property": "payment_method"
-                }
-              }
-            ],
-            "isPinned": true,
-            "AIInformation": {
-              "method": "MaxSplit",
-              "disabled": false
-            }
-          },
-          {
-            "queryRefs": [
-              "dim_station.borough"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_station"
-                    }
-                  },
-                  "Property": "borough"
-                }
-              }
-            ],
-            "isPinned": true,
-            "AIInformation": {
-              "method": "MaxSplit",
-              "disabled": false
-            }
           }
         ],
         "root": {
@@ -189,23 +147,11 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Subway'"
+                    "Value": "'MetroCard'"
                   }
                 }
               ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'MetroCard'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
+              "isToggled": true
             }
           ]
         }
@@ -292,28 +238,6 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "dim_station"
-                          }
-                        },
-                        "Property": "transit_mode"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Subway'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
                             "Entity": "dim_fare_class"
                           }
                         },
@@ -327,22 +251,7 @@
                     }
                   }
                 }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
-            "isAINode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
+              },
               {
                 "scopeId": {
                   "Comparison": {
@@ -373,37 +282,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "dim_fare_class"
+                            "Entity": "dim_date"
                           }
                         },
-                        "Property": "payment_method"
+                        "Property": "day_name"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'MetroCard'"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "dim_station"
-                          }
-                        },
-                        "Property": "borough"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Manhattan'"
+                        "Value": "'Wednesday'"
                       }
                     }
                   }
@@ -447,6 +334,13 @@
               "expr": {
                 "Literal": {
                   "Value": "14D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ridership Analysis by Payment and Transit Mode'"
                 }
               }
             }

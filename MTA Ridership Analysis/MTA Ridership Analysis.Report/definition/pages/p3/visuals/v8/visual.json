@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "v8",
   "position": {
-    "x": 131.21608040201005,
-    "y": 621.3467336683417,
-    "z": 4000,
-    "height": 441.88944723618096,
-    "width": 941.66834170854281,
-    "tabOrder": 4000
+    "x": 132,
+    "y": 622,
+    "z": 3000,
+    "height": 442,
+    "width": 1158,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineStackedColumnComboChart",
@@ -48,11 +48,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Average Daily Ridership"
+                  "Property": "Total Ridership"
                 }
               },
-              "queryRef": "_Measures.Average Daily Ridership",
-              "nativeQueryRef": "Average Daily Ridership",
+              "queryRef": "_Measures.Total Ridership",
+              "nativeQueryRef": "Total Ridership",
               "format": "#,0"
             }
           ]
@@ -68,11 +68,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Ridership"
+                  "Property": "Average Daily Ridership"
                 }
               },
-              "queryRef": "_Measures.Total Ridership",
-              "nativeQueryRef": "Total Ridership"
+              "queryRef": "_Measures.Average Daily Ridership",
+              "nativeQueryRef": "Average Daily Ridership",
+              "format": "#,0"
             }
           ]
         }
@@ -88,7 +89,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Average Daily Ridership"
+                "Property": "Total Ridership"
               }
             },
             "direction": "Descending"
@@ -96,6 +97,21 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "background": [
@@ -228,7 +244,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Chart 8'"
+                  "Value": "'Ridership by Years'"
                 }
               }
             },

@@ -70,6 +70,11 @@
           "type": "CustomTheme"
         },
         {
+          "name": "Before_After-selection8544772409750929.png",
+          "path": "Before_After-selection8544772409750929.png",
+          "type": "Image"
+        },
+        {
           "name": "bg-00-main-menu.png",
           "path": "bg-00-main-menu.png",
           "type": "Image"
@@ -97,6 +102,26 @@
         {
           "name": "logo.png",
           "path": "logo.png",
+          "type": "Image"
+        },
+        {
+          "name": "on-time10698386694848472.png",
+          "path": "on-time10698386694848472.png",
+          "type": "Image"
+        },
+        {
+          "name": "on-time3798471264823817.png",
+          "path": "on-time3798471264823817.png",
+          "type": "Image"
+        },
+        {
+          "name": "train-ticket0559420104932189.png",
+          "path": "train-ticket0559420104932189.png",
+          "type": "Image"
+        },
+        {
+          "name": "trend972121003985108.png",
+          "path": "trend972121003985108.png",
           "type": "Image"
         }
       ]
