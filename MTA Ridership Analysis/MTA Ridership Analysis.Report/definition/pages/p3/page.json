@@ -5,6 +5,11 @@
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
+  "pageBinding": {
+    "name": "261a67170cf8da03e5a2",
+    "type": "Default",
+    "parameters": []
+  },
   "objects": {
     "background": [
       {
@@ -70,5 +75,12 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "e3f4a71aafa24cbe3c0e",
+      "target": "28b3eba2f644228f8720",
+      "type": "DataFilter"
+    }
+  ]
 }
