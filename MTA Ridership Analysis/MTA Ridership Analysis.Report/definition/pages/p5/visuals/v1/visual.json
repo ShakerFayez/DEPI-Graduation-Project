@@ -1,16 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "v1",
   "position": {
     "x": 132,
     "y": 96,
-    "z": 1000,
+    "z": 0,
     "height": 64,
-    "width": 428,
-    "tabOrder": 1000
+    "width": 428
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_station"
+                    }
+                  },
+                  "Property": "borough"
+                }
+              },
+              "queryRef": "dim_station.borough",
+              "nativeQueryRef": "borough",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -38,7 +60,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filter 1'"
+                  "Value": "'Borough'"
                 }
               }
             },
@@ -52,7 +74,7 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "15D"
                 }
               }
             },
@@ -64,6 +86,13 @@
                       "Value": "'#607384'"
                     }
                   }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -106,6 +135,19 @@
                       "Value": "'#ffffff'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
