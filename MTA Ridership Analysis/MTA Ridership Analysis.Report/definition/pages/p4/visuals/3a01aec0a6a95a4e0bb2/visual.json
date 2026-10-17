@@ -1,16 +1,58 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "v5",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "3a01aec0a6a95a4e0bb2",
   "position": {
-    "x": 132,
-    "y": 178,
-    "z": 5000,
-    "height": 185,
-    "width": 576,
-    "tabOrder": 5000
+    "x": 452,
+    "y": 718,
+    "z": 18000,
+    "height": 337,
+    "width": 944,
+    "tabOrder": 18000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Schema": "extension",
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "YTD Ridership Change"
+                }
+              },
+              "queryRef": "_Measures.YTD Ridership Change",
+              "nativeQueryRef": "YTD Ridership Change"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Schema": "extension",
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "YTD Ridership Change"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -107,7 +149,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'KPI card 5'"
+                  "Value": "'Chart 8'"
                 }
               }
             },
