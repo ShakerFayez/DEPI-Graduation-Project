@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "270914030ed7d8595ab3",
   "position": {
     "x": 1473,
@@ -7,52 +7,10 @@
     "z": 16000,
     "height": 160,
     "width": 423,
-    "tabOrder": 16000
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "cardVisual",
-    "query": {
-      "queryState": {
-        "Data": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Top Station Ridership"
-                }
-              },
-              "queryRef": "_Measures.Top Station Ridership",
-              "nativeQueryRef": "Top Station Ridership"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Schema": "extension",
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "Top Station Ridership"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "value": [
         {

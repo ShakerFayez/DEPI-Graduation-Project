@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "v8",
   "position": {
-    "x": 132,
-    "y": 622,
+    "x": 131.92206832221615,
+    "y": 668.26096904204576,
     "z": 3000,
-    "height": 442,
-    "width": 1158,
-    "tabOrder": 3000
+    "height": 395.7662049666485,
+    "width": 934.26776254421929,
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "lineStackedColumnComboChart",
+    "visualType": "areaChart",
     "query": {
       "queryState": {
         "Category": {
@@ -34,6 +34,26 @@
               "queryRef": "dim_date.Date Hierarchy.year",
               "nativeQueryRef": "Date Hierarchy year",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_date"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "quarter"
+                }
+              },
+              "queryRef": "dim_date.Date Hierarchy.quarter",
+              "nativeQueryRef": "Date Hierarchy quarter",
+              "active": true
             }
           ]
         },
@@ -48,17 +68,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Ridership"
+                  "Property": "Avg Daily Ridership - Pre-COVID"
                 }
               },
-              "queryRef": "_Measures.Total Ridership",
-              "nativeQueryRef": "Total Ridership",
-              "format": "#,0"
-            }
-          ]
-        },
-        "Y2": {
-          "projections": [
+              "queryRef": "_Measures.Avg Daily Ridership - Pre-COVID",
+              "nativeQueryRef": "Avg Daily Ridership - Pre-COVID"
+            },
             {
               "field": {
                 "Measure": {
@@ -89,7 +104,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Ridership"
+                "Property": "Avg Daily Ridership - Pre-COVID"
               }
             },
             "direction": "Descending"
@@ -109,6 +124,99 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "areaMatchStrokeColor": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "areaColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            },
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "markerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Average Daily Ridership"
+          }
+        },
+        {
+          "properties": {
+            "areaMatchStrokeColor": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Avg Daily Ridership - Pre-COVID"
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Average Daily Ridership"
+          }
+        }
+      ],
+      "markers": [
+        {
+          "properties": {
+            "borderShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Average Daily Ridership"
           }
         }
       ]
@@ -244,7 +352,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ridership by Years'"
+                  "Value": "''"
                 }
               }
             },
@@ -296,7 +404,39 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'12'"
+                  "Value": "17D"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Heading4'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ridership Trend & Pre-COVID Baseline'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0b2841'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -385,6 +525,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

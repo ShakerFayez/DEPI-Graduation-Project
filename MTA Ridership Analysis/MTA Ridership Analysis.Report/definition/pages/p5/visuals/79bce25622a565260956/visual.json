@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "79bce25622a565260956",
   "position": {
     "x": 1006.3633557627013,
@@ -7,52 +7,10 @@
     "z": 17000,
     "height": 159.29872214334216,
     "width": 462.724859559232,
-    "tabOrder": 17000
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "cardVisual",
-    "query": {
-      "queryState": {
-        "Data": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "AVG. Ridership per Station"
-                }
-              },
-              "queryRef": "_Measures.Average Ridership per Station",
-              "nativeQueryRef": "AVG. Ridership per Station"
-            }
-          ]
-        }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Schema": "extension",
-                    "Entity": "_Measures"
-                  }
-                },
-                "Property": "AVG. Ridership per Station"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
     "objects": {
       "value": [
         {

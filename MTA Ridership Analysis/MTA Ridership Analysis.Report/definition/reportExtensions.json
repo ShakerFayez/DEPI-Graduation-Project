@@ -25,9 +25,9 @@
           }
         },
         {
-          "name": "Pre-COVID Baseline 2019",
+          "name": "Avg Daily Ridership - Pre-COVID",
           "dataType": "Double",
-          "expression": "\nCALCULATE(\n    [Average Daily Ridership],\n    REMOVEFILTERS('dim_date'[date]),\n    'dim_date'[date] >= DATE(2019, 1, 1),\n    'dim_date'[date] < DATE(2020, 1, 1)\n)",
+          "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    FILTER (\n        ALL ( 'dim_date' ),\n        'dim_date'[date] >= DATE ( 2017, 1, 1 )\n            && 'dim_date'[date] < DATE ( 2020, 1, 1 )\n    )\n)",
           "references": {
             "measures": [
               {
@@ -41,7 +41,7 @@
         {
           "name": "Ridership vs Pre-COVID Baseline",
           "dataType": "Double",
-          "expression": "\n    [Average Daily Ridership] - [Pre-COVID Baseline 2019]",
+          "expression": "\r\n    [Average Daily Ridership] - [Avg Daily Ridership - Pre-COVID]",
           "references": {
             "measures": [
               {
@@ -52,26 +52,26 @@
               {
                 "schema": "extension",
                 "entity": "_Measures",
-                "name": "Pre-COVID Baseline 2019"
+                "name": "Avg Daily Ridership - Pre-COVID"
               }
             ]
           }
         },
         {
-          "name": "% Change vs Pre-COVID Baseline",
+          "name": "COVID Decline %",
           "dataType": "Double",
-          "expression": "\nDIVIDE(\n    [Ridership vs Pre-COVID Baseline],\n    [Pre-COVID Baseline 2019]\n)",
+          "expression": "\nDIVIDE (\n    [Avg Daily Ridership - Pre-COVID]\n        - [COVID Avg Daily Ridership],\n    [Avg Daily Ridership - Pre-COVID]\n)",
           "references": {
             "measures": [
               {
                 "schema": "extension",
                 "entity": "_Measures",
-                "name": "Ridership vs Pre-COVID Baseline"
+                "name": "Avg Daily Ridership - Pre-COVID"
               },
               {
                 "schema": "extension",
                 "entity": "_Measures",
-                "name": "Pre-COVID Baseline 2019"
+                "name": "COVID Avg Daily Ridership"
               }
             ]
           }
@@ -190,6 +190,151 @@
                 "schema": "extension",
                 "entity": "_Measures",
                 "name": "Previous Year Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "COVID Avg Daily Ridership",
+          "dataType": "Double",
+          "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    FILTER (\n        ALL ( 'dim_date' ),\n        'dim_date'[date] >= DATE ( 2020, 1, 1 )\n            && 'dim_date'[date] < DATE ( 2022, 1, 1 )\n    )\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Recovery Avg Daily Ridership",
+          "dataType": "Double",
+          "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    FILTER (\n        ALL ( 'dim_date' ),\n        'dim_date'[date] >= DATE ( 2022, 1, 1 )\n    )\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Recovery % of Pre-COVID Baseline",
+          "dataType": "Double",
+          "expression": "\nDIVIDE (\n    [Recovery Avg Daily Ridership],\n    [Avg Daily Ridership - Pre-COVID]\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Recovery Avg Daily Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Avg Daily Ridership - Pre-COVID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Recovery Gap",
+          "dataType": "Double",
+          "expression": "\nMAX (\n    0,\n    [Avg Daily Ridership - Pre-COVID]\n        - [Recovery Avg Daily Ridership]\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Avg Daily Ridership - Pre-COVID"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Recovery Avg Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Average Daily Ridership YoY %",
+          "dataType": "Double",
+          "expression": "\nDIVIDE (\n    [Average Daily Ridership]\n        - [Previous Year Average Daily Ridership],\n    [Previous Year Average Daily Ridership]\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Previous Year Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Recovery Rate vs 2019",
+          "dataType": "Double",
+          "expression": "\r\nDIVIDE(\r\n    [Average Daily Ridership],\r\n    [Avg Daily Ridership - Pre-COVID]\r\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Avg Daily Ridership - Pre-COVID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Forecast Avg Daily Ridership",
+          "dataType": "Double",
+          "expression": "\r\nVAR LastActualDate =\r\n    MAXX(\r\n        FILTER(\r\n            ALL('dim_date'),\r\n            NOT ISBLANK([Average Daily Ridership])\r\n        ),\r\n        'dim_date'[date]\r\n    )\r\nRETURN\r\n    CALCULATE(\r\n        [Average Daily Ridership],\r\n        REMOVEFILTERS('dim_date'),\r\n        FILTER(\r\n            ALL('dim_date'),\r\n            'dim_date'[date] > LastActualDate - 30\r\n                && 'dim_date'[date] <= LastActualDate\r\n        )\r\n    )",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Forecast Recovery Rate",
+          "dataType": "Double",
+          "expression": "\r\nDIVIDE(\r\n    [Forecast Avg Daily Ridership],\r\n    [Avg Daily Ridership - Pre-COVID]\r\n)",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Forecast Avg Daily Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Avg Daily Ridership - Pre-COVID"
               }
             ]
           }

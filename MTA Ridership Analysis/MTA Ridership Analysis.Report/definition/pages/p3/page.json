@@ -78,8 +78,18 @@
   },
   "visualInteractions": [
     {
-      "source": "e3f4a71aafa24cbe3c0e",
-      "target": "28b3eba2f644228f8720",
+      "source": "c0775f09429e5a0e42ff",
+      "target": "v8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c0775f09429e5a0e42ff",
+      "target": "df334120b254f47afae1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c0775f09429e5a0e42ff",
+      "target": "6f02295164a5c752286d",
       "type": "DataFilter"
     }
   ]
