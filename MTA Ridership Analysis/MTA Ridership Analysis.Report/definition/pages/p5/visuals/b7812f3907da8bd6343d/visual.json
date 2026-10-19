@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "v15",
+  "name": "b7812f3907da8bd6343d",
   "position": {
     "x": 1671,
     "y": 27,
-    "z": 11000,
+    "z": 13009,
     "height": 60,
     "width": 225,
-    "tabOrder": 10000
+    "tabOrder": 24009
   },
   "visual": {
     "visualType": "image",
@@ -19,6 +19,33 @@
               "expr": {
                 "Literal": {
                   "Value": "'image'"
+                }
+              }
+            },
+            "sourceFile": {
+              "image": {
+                "name": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'logo.png'"
+                    }
+                  }
+                },
+                "url": {
+                  "expr": {
+                    "ResourcePackageItem": {
+                      "PackageName": "RegisteredResources",
+                      "PackageType": 1,
+                      "ItemName": "logo.png"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Fit'"
+                    }
+                  }
                 }
               }
             }
