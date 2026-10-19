@@ -198,7 +198,6 @@
           "name": "COVID Avg Daily Ridership",
           "dataType": "Double",
           "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    FILTER (\n        ALL ( 'dim_date' ),\n        'dim_date'[date] >= DATE ( 2020, 1, 1 )\n            && 'dim_date'[date] < DATE ( 2022, 1, 1 )\n    )\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -213,7 +212,6 @@
           "name": "Recovery Avg Daily Ridership",
           "dataType": "Double",
           "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    FILTER (\n        ALL ( 'dim_date' ),\n        'dim_date'[date] >= DATE ( 2022, 1, 1 )\n    )\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -228,7 +226,6 @@
           "name": "Recovery % of Pre-COVID Baseline",
           "dataType": "Double",
           "expression": "\nDIVIDE (\n    [Recovery Avg Daily Ridership],\n    [Avg Daily Ridership - Pre-COVID]\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -248,7 +245,6 @@
           "name": "Recovery Gap",
           "dataType": "Double",
           "expression": "\nMAX (\n    0,\n    [Avg Daily Ridership - Pre-COVID]\n        - [Recovery Avg Daily Ridership]\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -268,7 +264,6 @@
           "name": "Average Daily Ridership YoY %",
           "dataType": "Double",
           "expression": "\nDIVIDE (\n    [Average Daily Ridership]\n        - [Previous Year Average Daily Ridership],\n    [Previous Year Average Daily Ridership]\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -288,7 +283,6 @@
           "name": "Recovery Rate vs 2019",
           "dataType": "Double",
           "expression": "\r\nDIVIDE(\r\n    [Average Daily Ridership],\r\n    [Avg Daily Ridership - Pre-COVID]\r\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -308,7 +302,6 @@
           "name": "Forecast Avg Daily Ridership",
           "dataType": "Double",
           "expression": "\r\nVAR LastActualDate =\r\n    MAXX(\r\n        FILTER(\r\n            ALL('dim_date'),\r\n            NOT ISBLANK([Average Daily Ridership])\r\n        ),\r\n        'dim_date'[date]\r\n    )\r\nRETURN\r\n    CALCULATE(\r\n        [Average Daily Ridership],\r\n        REMOVEFILTERS('dim_date'),\r\n        FILTER(\r\n            ALL('dim_date'),\r\n            'dim_date'[date] > LastActualDate - 30\r\n                && 'dim_date'[date] <= LastActualDate\r\n        )\r\n    )",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -323,7 +316,6 @@
           "name": "Forecast Recovery Rate",
           "dataType": "Double",
           "expression": "\r\nDIVIDE(\r\n    [Forecast Avg Daily Ridership],\r\n    [Avg Daily Ridership - Pre-COVID]\r\n)",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -335,6 +327,123 @@
                 "schema": "extension",
                 "entity": "_Measures",
                 "name": "Avg Daily Ridership - Pre-COVID"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Seasonality Index",
+          "dataType": "Double",
+          "expression": "\nAVERAGEX (\n    FILTER ( VALUES ( dim_date[year] ), NOT dim_date[year] IN { 2020, 2021, 2022, 2026 } ),\n    DIVIDE (\n        [Average Daily Ridership],\n        CALCULATE ( [Average Daily Ridership], ALLEXCEPT ( dim_date, dim_date[year] ) )\n    )\n) * 100",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Holiday Impact %",
+          "dataType": "Double",
+          "expression": "\nAVERAGEX (\n    FILTER ( VALUES ( dim_date[year] ), NOT ( dim_date[year] IN { 2020, 2021, 2022, 2026 } ) ),\n    VAR Hol =\n        CALCULATE ( [Average Daily Ridership],\n            dim_date[is_holiday] = TRUE (), dim_date[is_weekend] = FALSE () )\n    VAR Norm =\n        CALCULATE ( [Average Daily Ridership], ALLEXCEPT ( dim_date, dim_date[year] ),\n            dim_date[is_holiday] = FALSE (), dim_date[is_weekend] = FALSE () )\n    RETURN IF ( ISBLANK ( Hol ), BLANK (), DIVIDE ( Hol, Norm ) - 1 )\n)",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Non-Holiday Avg Ridership",
+          "dataType": "Double",
+          "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    dim_date[is_holiday] = FALSE ()\n)",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Avg Weekday",
+          "dataType": "Double",
+          "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    dim_date[is_weekend] = FALSE (),\n    dim_date[is_holiday] = FALSE ()\n)",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Avg Weekend",
+          "dataType": "Double",
+          "expression": "\r\nCALCULATE (\r\n    [Average Daily Ridership],\r\n    dim_date[is_weekend] = TRUE (),\r\n    dim_date[is_holiday] = FALSE ()\r\n)",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Average Daily Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Highest Month",
+          "dataType": "Double",
+          "expression": "\r\nVAR MonthValues =\r\n    FILTER (\r\n        ADDCOLUMNS (\r\n            SUMMARIZE ( dim_date, dim_date[month], dim_date[month_name] ),\r\n            \"@Index\", [Seasonality Index]\r\n        ),\r\n        NOT ISBLANK ( [@Index] )\r\n    )\r\nRETURN\r\n    MAXX ( TOPN ( 1, MonthValues, [@Index], DESC, dim_date[month], ASC ), dim_date[month_name] )",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Seasonality Index"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Lowest Month",
+          "dataType": "Double",
+          "expression": "\r\nVAR MonthValues =\r\n    FILTER (\r\n        ADDCOLUMNS (\r\n            SUMMARIZE ( dim_date, dim_date[month], dim_date[month_name] ),\r\n            \"@Index\", [Seasonality Index]\r\n        ),\r\n        NOT ISBLANK ( [@Index] )\r\n    )\r\nRETURN\r\n    MAXX ( TOPN ( 1, MonthValues, [@Index], ASC ), dim_date[month_name] )",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Seasonality Index"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Weekend Share of Weekday",
+          "dataType": "Double",
+          "expression": "\r\nDIVIDE (\r\n    [Avg Weekend],\r\n    [Avg Weekday]\r\n)",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Avg Weekend"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Avg Weekday"
               }
             ]
           }
