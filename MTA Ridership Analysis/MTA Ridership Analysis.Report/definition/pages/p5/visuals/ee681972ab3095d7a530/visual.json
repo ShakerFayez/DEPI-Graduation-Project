@@ -1,16 +1,58 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "270914030ed7d8595ab3",
+  "name": "ee681972ab3095d7a530",
   "position": {
-    "x": 1473,
-    "y": 184,
-    "z": 16000,
-    "height": 160,
-    "width": 423,
-    "tabOrder": 15000
+    "x": 559.65982144656493,
+    "y": 183.25144596037967,
+    "z": 13003,
+    "height": 160.96410793817134,
+    "width": 443.27038955281029,
+    "tabOrder": 24003
   },
   "visual": {
     "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Schema": "extension",
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Stations"
+                }
+              },
+              "queryRef": "_Measures.Total Stations",
+              "nativeQueryRef": "Total Stations1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Schema": "extension",
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Stations"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "value": [
         {
@@ -213,7 +255,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'KPI card 7'"
+                  "Value": "'KPI card 6'"
                 }
               }
             },

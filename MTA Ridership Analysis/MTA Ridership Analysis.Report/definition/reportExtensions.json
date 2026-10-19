@@ -41,7 +41,8 @@
         {
           "name": "Ridership vs Pre-COVID Baseline",
           "dataType": "Double",
-          "expression": "\r\n    [Average Daily Ridership] - [Avg Daily Ridership - Pre-COVID]",
+          "expression": "\n    [Average Daily Ridership] - [Avg Daily Ridership - Pre-COVID]",
+          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -444,6 +445,62 @@
                 "schema": "extension",
                 "entity": "_Measures",
                 "name": "Avg Weekday"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Total Stations",
+          "dataType": "Double",
+          "expression": "\nDISTINCTCOUNT(dim_station[station_complex])",
+          "formatString": "General Number"
+        },
+        {
+          "name": "Leading Borough",
+          "dataType": "Double",
+          "expression": "\nVAR BoroughRidership =\n    TOPN(\n        1,\n        ADDCOLUMNS(\n            VALUES(dim_station[borough]),\n            \"RidershipValue\", [Total Ridership]\n        ),\n        [RidershipValue], DESC\n    )\nRETURN\n    CONCATENATEX(\n        BoroughRidership,\n        dim_station[borough],\n        \", \"\n    )",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Ridership per Station",
+          "dataType": "Double",
+          "expression": "\nDIVIDE(\n    [Total Ridership],\n    [Total Stations],\n    0\n)",
+          "formatString": "0",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Stations"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cumulative %",
+          "dataType": "Double",
+          "expression": "\nVAR cur = [Total Ridership]\nVAR cum =\n    CALCULATE(\n        [Total Ridership],\n        FILTER(ALL(dim_station[station_complex]), [Total Ridership] >= cur)\n    )\nVAR total = CALCULATE([Total Ridership], ALL(dim_station))\nRETURN DIVIDE(cum, total)",
+          "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
               }
             ]
           }

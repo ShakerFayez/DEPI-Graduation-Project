@@ -1,16 +1,58 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "79bce25622a565260956",
+  "name": "803883c6c089ff85a91d",
   "position": {
     "x": 1006.3633557627013,
     "y": 184.58423359466633,
-    "z": 17000,
+    "z": 13005,
     "height": 159.29872214334216,
     "width": 462.724859559232,
-    "tabOrder": 16000
+    "tabOrder": 24005
   },
   "visual": {
     "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Schema": "extension",
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Leading Borough"
+                }
+              },
+              "queryRef": "_Measures.Leading Borough",
+              "nativeQueryRef": "Leading Borough1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Schema": "extension",
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Leading Borough"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "objects": {
       "value": [
         {
