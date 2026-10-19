@@ -4,10 +4,10 @@
   "position": {
     "x": 1192,
     "y": 578,
-    "z": 13007,
+    "z": 19000,
     "height": 476,
     "width": 702,
-    "tabOrder": 13007
+    "tabOrder": 19000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -31,9 +31,6 @@
               "active": true
             }
           ]
-        },
-        "Tooltips": {
-          "projections": []
         },
         "Y": {
           "projections": [
