@@ -4,10 +4,10 @@
   "position": {
     "x": 130,
     "y": 49,
-    "z": 6000,
+    "z": 5000,
     "height": 27,
     "width": 558,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,15 +19,14 @@
               {
                 "textRuns": [
                   {
-                    "value": "MTA Ridership Analysis · Last refreshed · DD MMM YYYY",
+                    "value": "MTA Ridership Analysis ",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
                       "color": "#407198"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

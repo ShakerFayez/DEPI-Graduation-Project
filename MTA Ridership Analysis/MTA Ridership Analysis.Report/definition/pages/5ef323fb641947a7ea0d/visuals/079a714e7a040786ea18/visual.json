@@ -4,7 +4,7 @@
   "position": {
     "x": 132,
     "y": 722,
-    "z": 13000,
+    "z": 12000,
     "height": 330,
     "width": 1168,
     "tabOrder": 13000
@@ -504,7 +504,36 @@
       ],
       "dropShadow": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "92D"
+                }
+              }
+            }
+          }
         }
       ],
       "title": [

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "5ef323fb641947a7ea0d",
-  "displayName": "Seasonal Trend",
+  "displayName": "Seasonal Trends",
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
@@ -70,5 +70,32 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "2d3236241f0cfc3df8f0",
+      "target": "31023d28ef5444caa58f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2d3236241f0cfc3df8f0",
+      "target": "079a714e7a040786ea18",
+      "type": "NoFilter"
+    },
+    {
+      "source": "309a071238c776bbb4ec",
+      "target": "2d3236241f0cfc3df8f0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "309a071238c776bbb4ec",
+      "target": "079a714e7a040786ea18",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eeb9c0a1554a939e1615",
+      "target": "079a714e7a040786ea18",
+      "type": "NoFilter"
+    }
+  ]
 }

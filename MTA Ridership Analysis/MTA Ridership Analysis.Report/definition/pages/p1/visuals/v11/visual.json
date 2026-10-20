@@ -19,7 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": ""
+                    "value": "This dashboard provides a clear, data-driven overview of New York City subway ridership, helping users understand travel patterns, identify trends, and explore changes in public transit usage over time. It transforms complex data into meaningful insights through interactive visualizations and accessible summaries, supporting informed decisions and a better understanding of the city's transit system.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt",
+                      "color": "#ffffff"
+                    }
                   }
                 ]
               }

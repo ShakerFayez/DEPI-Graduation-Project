@@ -195,6 +195,173 @@
             }
           }
         }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_station"
+                          }
+                        },
+                        "Property": "borough"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Brooklyn'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#407198'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_station"
+                          }
+                        },
+                        "Property": "borough"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Queens'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#407198'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_station"
+                          }
+                        },
+                        "Property": "borough"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Bronx'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#407198'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_station"
+                          }
+                        },
+                        "Property": "borough"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Staten Island'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -407,7 +574,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "10D"
                 }
               }
             },
@@ -441,7 +608,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "86D"
+                  "Value": "92D"
                 }
               }
             },
@@ -455,7 +622,7 @@
             "shadowBlur": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "16D"
                 }
               }
             },
@@ -469,7 +636,7 @@
             "shadowDistance": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "3D"
                 }
               }
             }
@@ -543,5 +710,38 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "00aa4d6933d1fd489909",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_station"
+              }
+            },
+            "Property": "borough"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "606e96c683a9be7aee16",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Average Daily Ridership"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

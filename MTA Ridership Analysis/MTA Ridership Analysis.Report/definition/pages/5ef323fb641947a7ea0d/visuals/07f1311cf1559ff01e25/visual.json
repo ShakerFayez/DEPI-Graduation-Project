@@ -4,7 +4,7 @@
   "position": {
     "x": 1324,
     "y": 368,
-    "z": 15000,
+    "z": 14000,
     "height": 330,
     "width": 572,
     "tabOrder": 15000
@@ -99,7 +99,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B4A7D'"
+                      "Value": "'#1D70B8'"
                     }
                   }
                 }
@@ -180,8 +180,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#B85C1E'"
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0
                     }
                   }
                 }
@@ -221,8 +222,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#E8B48A'"
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0
                     }
                   }
                 }
@@ -263,7 +265,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#407198'"
+                      "Value": "'#1D70B8'"
                     }
                   }
                 }
@@ -304,7 +306,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#6FA8D8'"
+                      "Value": "'#1D70B8'"
                     }
                   }
                 }
@@ -352,7 +354,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#8FBFE0'"
+                      "Value": "'#1D70B8'"
                     }
                   }
                 }
@@ -387,54 +389,7 @@
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "FillRule": {
-                      "Input": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Schema": "extension",
-                              "Entity": "_Measures"
-                            }
-                          },
-                          "Property": "Non-Holiday Avg Ridership"
-                        }
-                      },
-                      "FillRule": {
-                        "linearGradient2": {
-                          "min": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#edc3a1'"
-                              }
-                            }
-                          },
-                          "max": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#486070'"
-                              }
-                            }
-                          },
-                          "nullColoringStrategy": {
-                            "strategy": {
-                              "Literal": {
-                                "Value": "'asZero'"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
+          "properties": {},
           "selector": {
             "data": [
               {
@@ -443,6 +398,21 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D70B8'"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       ],
@@ -562,7 +532,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "86D"
+                  "Value": "92D"
                 }
               }
             },
@@ -576,7 +546,7 @@
             "shadowBlur": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "16D"
                 }
               }
             },
@@ -590,7 +560,7 @@
             "shadowDistance": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "3D"
                 }
               }
             }
@@ -745,6 +715,23 @@
               "expr": {
                 "Literal": {
                   "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "themedTitleFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#5A6B7B'"
+                    }
+                  }
                 }
               }
             }

@@ -5,8 +5,8 @@
     "x": 130,
     "y": 21,
     "z": 4000,
-    "height": 32,
-    "width": 130,
+    "height": 48,
+    "width": 144,
     "tabOrder": 4000
   },
   "visual": {
@@ -19,15 +19,14 @@
               {
                 "textRuns": [
                   {
-                    "value": "Overview",
+                    "value": "Seasonal Trends",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "14pt",
                       "color": "#0b2841"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

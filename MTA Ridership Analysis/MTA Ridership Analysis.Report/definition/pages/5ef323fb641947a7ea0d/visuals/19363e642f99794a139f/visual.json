@@ -4,7 +4,7 @@
   "position": {
     "x": 132,
     "y": 184,
-    "z": 17000,
+    "z": 16000,
     "height": 160,
     "width": 423,
     "tabOrder": 17000
@@ -90,7 +90,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "28D"
                 }
               }
             },
@@ -110,6 +110,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
                 }
               }
             }
@@ -140,9 +147,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#407198'"
                     }
                   }
                 }
@@ -151,7 +157,7 @@
             "width": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "3D"
                 }
               }
             }
@@ -168,6 +174,32 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
                 }
               }
             }
@@ -212,7 +244,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -229,6 +261,22 @@
               "expr": {
                 "Literal": {
                   "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "cardCalloutArea": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -286,7 +334,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#d2dce3'"
+                      "Value": "'#D9E1E8'"
                     }
                   }
                 }
@@ -295,7 +343,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "8D"
                 }
               }
             },
@@ -329,21 +377,21 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "86D"
+                  "Value": "92D"
                 }
               }
             },
             "shadowSpread": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "0L"
                 }
               }
             },
             "shadowBlur": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "16D"
                 }
               }
             },
@@ -357,7 +405,25 @@
             "shadowDistance": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "3D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Outer'"
                 }
               }
             }
@@ -532,5 +598,54 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4a5f9421ef1de1a7048c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "year"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "fa54ad83d3894b7fda50",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Highest Month"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
