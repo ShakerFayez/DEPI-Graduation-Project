@@ -42,7 +42,6 @@
           "name": "Ridership vs Pre-COVID Baseline",
           "dataType": "Double",
           "expression": "\n    [Average Daily Ridership] - [Avg Daily Ridership - Pre-COVID]",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -452,14 +451,12 @@
         {
           "name": "Total Stations",
           "dataType": "Double",
-          "expression": "\nDISTINCTCOUNT(dim_station[station_complex])",
-          "formatString": "General Number"
+          "expression": "\nDISTINCTCOUNT(dim_station[station_complex])"
         },
         {
           "name": "Leading Borough",
           "dataType": "Double",
           "expression": "\nVAR BoroughRidership =\n    TOPN(\n        1,\n        ADDCOLUMNS(\n            VALUES(dim_station[borough]),\n            \"RidershipValue\", [Total Ridership]\n        ),\n        [RidershipValue], DESC\n    )\nRETURN\n    CONCATENATEX(\n        BoroughRidership,\n        dim_station[borough],\n        \", \"\n    )",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {

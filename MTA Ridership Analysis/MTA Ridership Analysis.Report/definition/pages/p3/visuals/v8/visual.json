@@ -197,6 +197,18 @@
                   "Value": "13D"
                 }
               }
+            },
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
             }
           },
           "selector": {
