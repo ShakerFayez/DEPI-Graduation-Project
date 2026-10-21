@@ -48,11 +48,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Average Daily Ridership"
+                  "Property": "Previous Year Average Daily Ridership"
                 }
               },
-              "queryRef": "_Measures.Average Daily Ridership",
-              "nativeQueryRef": "Average Daily Ridership"
+              "queryRef": "_Measures.Previous Year Average Daily Ridership",
+              "nativeQueryRef": "Previous Year Average Daily Ridership"
             }
           ]
         },
@@ -88,7 +88,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Average Daily Ridership"
+                "Property": "Previous Year Average Daily Ridership"
               }
             },
             "direction": "Descending"
