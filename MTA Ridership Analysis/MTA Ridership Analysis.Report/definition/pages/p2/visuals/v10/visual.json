@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "v10",
   "position": {
     "x": 130,
@@ -19,15 +19,14 @@
               {
                 "textRuns": [
                   {
-                    "value": "MTA Ridership Analysis · Last refreshed · DD MMM YYYY",
+                    "value": "MTA Ridership Analysis ",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
                       "color": "#407198"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

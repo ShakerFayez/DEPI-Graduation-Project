@@ -40,7 +40,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           },
@@ -102,18 +102,33 @@
           "type": "Image"
         },
         {
-          "name": "bg-03-seasonal-trends.png",
-          "path": "bg-03-seasonal-trends.png",
-          "type": "Image"
-        },
-        {
           "name": "bg-04-geographic-analysis.png",
           "path": "bg-04-geographic-analysis.png",
           "type": "Image"
         },
         {
-          "name": "calendar-arrow-up3624342508832681.svg",
-          "path": "calendar-arrow-up3624342508832681.svg",
+          "name": "calendar-arrow-down_(3)06937346996492377.svg",
+          "path": "calendar-arrow-down_(3)06937346996492377.svg",
+          "type": "Image"
+        },
+        {
+          "name": "calendar-arrow-up_(1)18273535572437039.svg",
+          "path": "calendar-arrow-up_(1)18273535572437039.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-column7672799339492915.svg",
+          "path": "chart-column7672799339492915.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-no-axes-column_(1)7874277494429284.svg",
+          "path": "chart-no-axes-column_(1)7874277494429284.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-no-axes-column-decreasin8263185419454636.svg",
+          "path": "chart-no-axes-column-decreasin8263185419454636.svg",
           "type": "Image"
         },
         {
@@ -154,6 +169,11 @@
         {
           "name": "trend24272600022484359.png",
           "path": "trend24272600022484359.png",
+          "type": "Image"
+        },
+        {
+          "name": "trending-down4631474442333262.svg",
+          "path": "trending-down4631474442333262.svg",
           "type": "Image"
         },
         {

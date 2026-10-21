@@ -42,7 +42,6 @@
           "name": "Ridership vs Pre-COVID Baseline",
           "dataType": "Double",
           "expression": "\n    [Average Daily Ridership] - [Avg Daily Ridership - Pre-COVID]",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {
@@ -391,7 +390,7 @@
         {
           "name": "Avg Weekend",
           "dataType": "Double",
-          "expression": "\r\nCALCULATE (\r\n    [Average Daily Ridership],\r\n    dim_date[is_weekend] = TRUE (),\r\n    dim_date[is_holiday] = FALSE ()\r\n)",
+          "expression": "\nCALCULATE (\n    [Average Daily Ridership],\n    dim_date[is_weekend] = TRUE (),\n    dim_date[is_holiday] = FALSE ()\n)",
           "references": {
             "measures": [
               {
@@ -433,7 +432,7 @@
         {
           "name": "Weekend Share of Weekday",
           "dataType": "Double",
-          "expression": "\r\nDIVIDE (\r\n    [Avg Weekend],\r\n    [Avg Weekday]\r\n)",
+          "expression": "\nDIVIDE (\n    [Avg Weekend],\n    [Avg Weekday]\n)",
           "references": {
             "measures": [
               {
@@ -452,14 +451,12 @@
         {
           "name": "Total Stations",
           "dataType": "Double",
-          "expression": "\nDISTINCTCOUNT(dim_station[station_complex])",
-          "formatString": "General Number"
+          "expression": "\nDISTINCTCOUNT(dim_station[station_complex])"
         },
         {
           "name": "Leading Borough",
           "dataType": "Double",
           "expression": "\nVAR BoroughRidership =\n    TOPN(\n        1,\n        ADDCOLUMNS(\n            VALUES(dim_station[borough]),\n            \"RidershipValue\", [Total Ridership]\n        ),\n        [RidershipValue], DESC\n    )\nRETURN\n    CONCATENATEX(\n        BoroughRidership,\n        dim_station[borough],\n        \", \"\n    )",
-          "formatString": "General Number",
           "references": {
             "measures": [
               {

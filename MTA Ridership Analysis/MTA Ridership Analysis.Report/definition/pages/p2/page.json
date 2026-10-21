@@ -70,5 +70,42 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "9c2ed2b15705462084a8",
+      "target": "v8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "v8",
+      "target": "eca5b77dc87af6e9ff02",
+      "type": "HighlightFilter"
+    },
+    {
+      "source": "v8",
+      "target": "573684acee98b7b3ca18",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15d66d6347105775153e",
+      "target": "573684acee98b7b3ca18",
+      "type": "DataFilter"
+    },
+    {
+      "source": "b727db25a0383d298cdf",
+      "target": "44be365268eff7eed0f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15d66d6347105775153e",
+      "target": "44be365268eff7eed0f8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "eca5b77dc87af6e9ff02",
+      "target": "44be365268eff7eed0f8",
+      "type": "DataFilter"
+    }
+  ]
 }

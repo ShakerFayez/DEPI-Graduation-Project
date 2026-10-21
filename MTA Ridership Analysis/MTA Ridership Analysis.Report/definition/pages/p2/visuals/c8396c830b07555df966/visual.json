@@ -128,7 +128,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "10D"
                 }
               }
             },
@@ -151,6 +151,27 @@
                   "Value": "true"
                 }
               }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "92D"
+                }
+              }
             }
           }
         }
@@ -168,7 +189,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Chart 8'"
+                  "Value": "'Ridership by Fare Group'"
                 }
               }
             },
@@ -189,10 +210,63 @@
                   }
                 }
               }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "45e4d31a218dfada36d9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_fare_class"
+              }
+            },
+            "Property": "fare_group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a13edd2d2eae1fcb4e97",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Average Daily Ridership"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

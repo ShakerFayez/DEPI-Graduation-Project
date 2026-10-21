@@ -4,13 +4,13 @@
   "position": {
     "x": 1324,
     "y": 722,
-    "z": 14000,
+    "z": 13000,
     "height": 334,
     "width": 572,
     "tabOrder": 14000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -75,67 +75,23 @@
     "objects": {
       "dataPoint": [
         {
-          "properties": {}
-        },
-        {
           "properties": {
             "fill": {
               "solid": {
                 "color": {
                   "expr": {
-                    "FillRule": {
-                      "Input": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Schema": "extension",
-                              "Entity": "_Measures"
-                            }
-                          },
-                          "Property": "Holiday Impact %"
-                        }
-                      },
-                      "FillRule": {
-                        "linearGradient2": {
-                          "min": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#486070'"
-                              }
-                            },
-                            "value": {
-                              "Literal": {
-                                "Value": "-0.7D"
-                              }
-                            }
-                          },
-                          "max": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#EDC3A1'"
-                              }
-                            },
-                            "value": {
-                              "Literal": {
-                                "Value": "0D"
-                              }
-                            }
-                          },
-                          "nullColoringStrategy": {
-                            "strategy": {
-                              "Literal": {
-                                "Value": "'asZero'"
-                              }
-                            }
-                          }
-                        }
-                      }
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
                     }
                   }
                 }
               }
             }
-          },
+          }
+        },
+        {
+          "properties": {},
           "selector": {
             "data": [
               {
@@ -149,7 +105,15 @@
       ],
       "valueAxis": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ],
       "legend": [
@@ -246,19 +210,6 @@
             }
           }
         }
-      ],
-      "ribbonBands": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -312,7 +263,36 @@
       ],
       "dropShadow": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "92D"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
         }
       ],
       "title": [

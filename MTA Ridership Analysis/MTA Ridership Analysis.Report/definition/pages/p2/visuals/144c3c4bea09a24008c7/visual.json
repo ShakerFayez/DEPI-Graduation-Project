@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "144c3c4bea09a24008c7",
+  "position": {
+    "x": 485,
+    "y": 192,
+    "z": 26000,
+    "height": 56,
+    "width": 56,
+    "tabOrder": 26000
+  },
+  "visualGroup": {
+    "displayName": "KPI-2 icon",
+    "groupMode": "ScaleMode"
+  }
+}

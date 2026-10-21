@@ -239,5 +239,24 @@
       ]
     }
   },
-  "parentGroupName": "798f52f5d8e8f4e97d69"
+  "parentGroupName": "798f52f5d8e8f4e97d69",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d87b2221941fd828e6c6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Recovery % of Pre-COVID Baseline"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

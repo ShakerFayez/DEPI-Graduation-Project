@@ -4,10 +4,10 @@
   "position": {
     "x": 130,
     "y": 21,
-    "z": 5000,
+    "z": 4000,
     "height": 32,
     "width": 257,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "textbox",
@@ -26,8 +26,7 @@
                       "color": "#0b2841"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }
