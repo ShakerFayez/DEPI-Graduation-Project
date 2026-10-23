@@ -458,21 +458,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "4bd356eaa5639a6740c0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "YoY Ridership Change %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

@@ -630,21 +630,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "fa54ad83d3894b7fda50",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Highest Month"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
