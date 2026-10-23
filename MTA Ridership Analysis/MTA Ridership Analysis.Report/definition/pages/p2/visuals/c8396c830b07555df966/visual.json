@@ -235,38 +235,5 @@
         }
       ]
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "45e4d31a218dfada36d9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_fare_class"
-              }
-            },
-            "Property": "fare_group"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a13edd2d2eae1fcb4e97",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Average Daily Ridership"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

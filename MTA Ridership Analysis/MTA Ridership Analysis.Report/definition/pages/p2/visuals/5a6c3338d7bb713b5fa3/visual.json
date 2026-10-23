@@ -659,21 +659,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "b2a03b807df9f0c5f43b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total Ridership"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

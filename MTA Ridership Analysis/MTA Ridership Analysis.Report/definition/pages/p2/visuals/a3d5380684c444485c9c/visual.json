@@ -600,21 +600,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "d17b2b63b143507a4df7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Average Daily Ridership"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "66d0c3553390d54ddb0f",
         "field": {
           "Column": {

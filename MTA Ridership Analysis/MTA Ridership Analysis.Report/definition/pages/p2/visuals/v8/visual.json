@@ -350,35 +350,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "57faeac65ba2faf6c88e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_date"
-              }
-            },
-            "Property": "date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ac09c1fad7a66edab6c2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Average Daily Ridership"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

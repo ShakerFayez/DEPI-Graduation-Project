@@ -710,38 +710,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "00aa4d6933d1fd489909",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_station"
-              }
-            },
-            "Property": "borough"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "606e96c683a9be7aee16",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Average Daily Ridership"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

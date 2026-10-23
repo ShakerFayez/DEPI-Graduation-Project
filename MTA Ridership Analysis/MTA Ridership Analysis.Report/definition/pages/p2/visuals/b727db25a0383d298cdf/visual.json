@@ -601,21 +601,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5b37024d3e6cd1c00ec0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "YTD Ridership Change %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "12106406ddc227d941ca",
         "field": {
           "Column": {

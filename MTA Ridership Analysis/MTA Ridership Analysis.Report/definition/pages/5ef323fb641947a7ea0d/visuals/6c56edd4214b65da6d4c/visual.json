@@ -599,24 +599,5 @@
         }
       ]
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6dd437bbaa3c67cc85da",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Schema": "extension",
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Holiday Impact %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
