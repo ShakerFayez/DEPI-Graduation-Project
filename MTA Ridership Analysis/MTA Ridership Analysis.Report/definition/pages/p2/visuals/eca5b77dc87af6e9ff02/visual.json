@@ -403,7 +403,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Ridership by Borough'"
+                  "Value": "'Average Ridership by Borough'"
                 }
               }
             },

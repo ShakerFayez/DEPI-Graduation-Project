@@ -340,7 +340,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'vs. same-year non-holiday weekdays · 2017–2019, 2023–2025'"
+                  "Value": "'vs. same-year non-holiday weekdays · 2017–2019, 2023–2026'"
                 }
               }
             },
@@ -368,5 +368,38 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "229d0493b0462139466c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "holiday_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0f7a4508b174f9d0218a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Holiday Impact %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -5,6 +5,139 @@
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "919c4f5965248f11c86c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_date"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "month_name"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "6921b17399ae95b01cb5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "year"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      },
+      {
+        "name": "6484221e4e8f8ffe1e2f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "month_name"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_date",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "month_name"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'October'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'November'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'December'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
   "objects": {
     "background": [
       {
@@ -80,7 +213,7 @@
     {
       "source": "2d3236241f0cfc3df8f0",
       "target": "079a714e7a040786ea18",
-      "type": "NoFilter"
+      "type": "DataFilter"
     },
     {
       "source": "309a071238c776bbb4ec",
@@ -96,6 +229,46 @@
       "source": "eeb9c0a1554a939e1615",
       "target": "079a714e7a040786ea18",
       "type": "NoFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "07f1311cf1559ff01e25",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "a338f5c2a2dff4823970",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "871babddc58b79fb9a5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "5f48bdce71eca1c1cad2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "422982f121dc44189315",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "eeb9c0a1554a939e1615",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "8b2e340dd7a05ac8b3db",
+      "type": "DataFilter"
+    },
+    {
+      "source": "19085389f6066944dec1",
+      "target": "fb1ddf8730609993e955",
+      "type": "DataFilter"
     }
   ]
 }

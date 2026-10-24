@@ -40,7 +40,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           },
@@ -77,11 +77,6 @@
           "type": "CustomTheme"
         },
         {
-          "name": "bar-chart-07-svgrepo-com_(1)305299134661835.png",
-          "path": "bar-chart-07-svgrepo-com_(1)305299134661835.png",
-          "type": "Image"
-        },
-        {
           "name": "bg-00-main-menu.png",
           "path": "bg-00-main-menu.png",
           "type": "Image"
@@ -112,6 +107,11 @@
           "type": "Image"
         },
         {
+          "name": "chart-column_(1)03907114953238644.svg",
+          "path": "chart-column_(1)03907114953238644.svg",
+          "type": "Image"
+        },
+        {
           "name": "chart-column7672799339492915.svg",
           "path": "chart-column7672799339492915.svg",
           "type": "Image"
@@ -127,8 +127,8 @@
           "type": "Image"
         },
         {
-          "name": "city-skyline-svgrepo-com312069055713026.png",
-          "path": "city-skyline-svgrepo-com312069055713026.png",
+          "name": "chart-no-axes-combined0625332143960231.svg",
+          "path": "chart-no-axes-combined0625332143960231.svg",
           "type": "Image"
         },
         {
@@ -142,8 +142,8 @@
           "type": "Image"
         },
         {
-          "name": "train-station-mark-svgrepo-com21714161595478032.png",
-          "path": "train-station-mark-svgrepo-com21714161595478032.png",
+          "name": "train-front9035382028965446.svg",
+          "path": "train-front9035382028965446.svg",
           "type": "Image"
         },
         {
@@ -162,8 +162,8 @@
           "type": "Image"
         },
         {
-          "name": "users-svgrepo-com_(2)4807213964327718.png",
-          "path": "users-svgrepo-com_(2)4807213964327718.png",
+          "name": "users3007876698256221.svg",
+          "path": "users3007876698256221.svg",
           "type": "Image"
         },
         {

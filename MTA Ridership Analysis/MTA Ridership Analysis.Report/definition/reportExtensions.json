@@ -334,7 +334,7 @@
         {
           "name": "Seasonality Index",
           "dataType": "Double",
-          "expression": "\nAVERAGEX (\n    FILTER ( VALUES ( dim_date[year] ), NOT dim_date[year] IN { 2020, 2021, 2022, 2026 } ),\n    DIVIDE (\n        [Average Daily Ridership],\n        CALCULATE ( [Average Daily Ridership], ALLEXCEPT ( dim_date, dim_date[year] ) )\n    )\n) * 100",
+          "expression": "\nAVERAGEX (\n    FILTER ( VALUES ( dim_date[year] ), NOT dim_date[year] IN { 2020, 2021, 2022 } ),\n    DIVIDE (\n        [Average Daily Ridership],\n        CALCULATE ( [Average Daily Ridership], ALLEXCEPT ( dim_date, dim_date[year] ) )\n    )\n) * 100",
           "references": {
             "measures": [
               {
@@ -348,7 +348,7 @@
         {
           "name": "Holiday Impact %",
           "dataType": "Double",
-          "expression": "\nAVERAGEX (\n    FILTER ( VALUES ( dim_date[year] ), NOT ( dim_date[year] IN { 2020, 2021, 2022, 2026 } ) ),\n    VAR Hol =\n        CALCULATE ( [Average Daily Ridership],\n            dim_date[is_holiday] = TRUE (), dim_date[is_weekend] = FALSE () )\n    VAR Norm =\n        CALCULATE ( [Average Daily Ridership], ALLEXCEPT ( dim_date, dim_date[year] ),\n            dim_date[is_holiday] = FALSE (), dim_date[is_weekend] = FALSE () )\n    RETURN IF ( ISBLANK ( Hol ), BLANK (), DIVIDE ( Hol, Norm ) - 1 )\n)",
+          "expression": "\nAVERAGEX (\n    FILTER ( VALUES ( dim_date[year] ), NOT ( dim_date[year] IN { 2020, 2021, 2022 } ) ),\n    VAR Hol =\n        CALCULATE ( [Average Daily Ridership],\n            dim_date[is_holiday] = TRUE (), dim_date[is_weekend] = FALSE () )\n    VAR Norm =\n        CALCULATE ( [Average Daily Ridership], ALLEXCEPT ( dim_date, dim_date[year] ),\n            dim_date[is_holiday] = FALSE (), dim_date[is_weekend] = FALSE () )\n    RETURN IF ( ISBLANK ( Hol ), BLANK (), DIVIDE ( Hol, Norm ) - 1 )\n)",
           "references": {
             "measures": [
               {
@@ -492,6 +492,20 @@
           "dataType": "Double",
           "expression": "\nVAR cur = [Total Ridership]\nVAR cum =\n    CALCULATE(\n        [Total Ridership],\n        FILTER(ALL(dim_station[station_complex]), [Total Ridership] >= cur)\n    )\nVAR total = CALCULATE([Total Ridership], ALL(dim_station))\nRETURN DIVIDE(cum, total)",
           "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Total Ridership"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Share of Network (%)",
+          "dataType": "Double",
+          "expression": "\nDIVIDE(\n    [Total Ridership],\n    CALCULATE(\n        [Total Ridership],\n        REMOVEFILTERS(dim_station)\n    ),\n    0\n)",
           "references": {
             "measures": [
               {

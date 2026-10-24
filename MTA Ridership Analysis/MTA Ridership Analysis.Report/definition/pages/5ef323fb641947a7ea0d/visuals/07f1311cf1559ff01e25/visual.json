@@ -618,7 +618,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non-holiday days · 2017-2019 and 2023-2025'"
+                  "Value": "'Non-holiday days · 2017-2019 and 2023-2026'"
                 }
               }
             },
@@ -743,7 +743,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4e913c5d4339ad51223f",
+        "name": "ebdf8234cb624d98df3b",
         "field": {
           "Column": {
             "Expression": {
@@ -751,90 +751,25 @@
                 "Entity": "dim_date"
               }
             },
-            "Property": "year"
+            "Property": "day_name"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "dim_date",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "year"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "2021L"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "2022L"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "2026L"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "2020L"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
+        "type": "Categorical"
+      },
+      {
+        "name": "62fc439f8f877743fc25",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
               }
-            }
-          ]
+            },
+            "Property": "Non-Holiday Avg Ridership"
+          }
         },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
+        "type": "Advanced"
       }
     ]
   }

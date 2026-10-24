@@ -189,7 +189,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ridership by Fare Group'"
+                  "Value": "'Average daily ridership by fare group'"
                 }
               }
             },
