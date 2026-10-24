@@ -587,7 +587,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'100 = annual average daily ridership · 2020–22 and partial 2026 excluded · 2023–25 not trend-tested'"
+                  "Value": "'100 = annual average daily ridership · 2017-2019 2023-2026'"
                 }
               }
             },
@@ -602,5 +602,67 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0fd684fa93e3c802a4ba",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "month_name"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "3f0274a69a3ed2a959cf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "914f6d1260ed578a03b6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Seasonality Index"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

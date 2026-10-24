@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 64,
     "width": 428,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -148,7 +148,7 @@
             "selectAllCheckboxEnabled": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }

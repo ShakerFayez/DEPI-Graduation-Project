@@ -598,5 +598,24 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "03610ca0247a138ea774",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Lowest Month"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

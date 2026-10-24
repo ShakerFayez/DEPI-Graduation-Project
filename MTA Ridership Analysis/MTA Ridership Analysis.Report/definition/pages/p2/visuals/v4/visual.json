@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "v4",
   "position": {
     "x": 1473,
@@ -23,11 +23,11 @@
                       "Entity": "dim_fare_class"
                     }
                   },
-                  "Property": "fare_group"
+                  "Property": "payment_method"
                 }
               },
-              "queryRef": "dim_fare_class.fare_group",
-              "nativeQueryRef": "fare_group",
+              "queryRef": "dim_fare_class.payment_method",
+              "nativeQueryRef": "payment_method",
               "active": true
             }
           ]
@@ -61,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Fare Group'"
+                  "Value": "'Payment Method'"
                 }
               }
             },
@@ -140,6 +140,11 @@
               }
             }
           }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
         }
       ]
     },

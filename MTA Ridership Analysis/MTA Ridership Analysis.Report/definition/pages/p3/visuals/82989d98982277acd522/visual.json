@@ -6,7 +6,8 @@
     "y": 8,
     "z": 6000,
     "height": 56,
-    "width": 56
+    "width": 56,
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "KPI-1 icon",

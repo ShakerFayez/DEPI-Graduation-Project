@@ -599,5 +599,24 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c652d45a3c81c4e8b46a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Schema": "extension",
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekend Share of Weekday"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
