@@ -40,7 +40,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "true"
+                "Value": "false"
               }
             }
           },
@@ -89,6 +89,11 @@
         {
           "name": "bg-02-covid-impact.png",
           "path": "bg-02-covid-impact.png",
+          "type": "Image"
+        },
+        {
+          "name": "bg-03-seasonal-trends6374243875112955.png",
+          "path": "bg-03-seasonal-trends6374243875112955.png",
           "type": "Image"
         },
         {
