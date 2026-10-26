@@ -147,7 +147,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'bg-01-overview.png'"
+                    "Value": "'bg-03-seasonal-trends.png'"
                   }
                 }
               },
@@ -156,14 +156,14 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "bg-01-overview.png"
+                    "ItemName": "bg-03-seasonal-trends6374243875112955.png"
                   }
                 }
               },
               "scaling": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Fit'"
+                    "Value": "'Normal'"
                   }
                 }
               }

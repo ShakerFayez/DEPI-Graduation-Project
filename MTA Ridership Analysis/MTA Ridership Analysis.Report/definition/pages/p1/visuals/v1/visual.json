@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v1",
   "position": {
     "x": 734,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "MTA   •   LAST REFRESHED · 31/9/2026",
+                    "value": "MTA   •   LAST REFRESHED · 14/10/2026",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
