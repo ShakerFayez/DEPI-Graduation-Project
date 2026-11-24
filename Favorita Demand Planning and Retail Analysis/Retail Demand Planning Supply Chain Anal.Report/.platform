@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Retail Demand Planning Supply Chain Anal"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d20ce8b1-311f-4413-99d7-b74f4e4b9718"
+  }
+}
