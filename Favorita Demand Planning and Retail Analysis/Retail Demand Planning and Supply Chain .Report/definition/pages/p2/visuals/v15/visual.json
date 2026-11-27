@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v15",
   "position": {
     "x": 48,
     "y": 444,
-    "z": 15000,
+    "z": 12000,
     "height": 75,
     "width": 246,
-    "tabOrder": 15000
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_item"
+                    }
+                  },
+                  "Property": "family"
+                }
+              },
+              "queryRef": "dim_item.family",
+              "nativeQueryRef": "family",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -38,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filter 2'"
+                  "Value": "'Product Family'"
                 }
               }
             },
@@ -207,6 +230,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "family",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }

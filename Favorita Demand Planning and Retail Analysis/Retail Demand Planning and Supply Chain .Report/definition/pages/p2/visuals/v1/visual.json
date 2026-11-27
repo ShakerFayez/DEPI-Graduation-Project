@@ -1,16 +1,58 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v1",
   "position": {
-    "x": 342,
-    "y": 24,
-    "z": 1000,
-    "height": 201,
-    "width": 375,
-    "tabOrder": 1000
+    "x": 341.86143560772734,
+    "y": 24.418673971980525,
+    "z": 0,
+    "height": 200.58196476984003,
+    "width": 235.46578472981219,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Schema": "extension",
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Net Units YoY %"
+                }
+              },
+              "queryRef": "_Measures.Net Units YoY %",
+              "nativeQueryRef": "Net Units YoY %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Schema": "extension",
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Net Units YoY %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "visualContainerObjects": {
       "background": [
         {

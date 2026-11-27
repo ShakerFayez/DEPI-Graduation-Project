@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtension/1.0.0/schema.json",
+  "name": "extension",
+  "entities": [
+    {
+      "name": "_Measures",
+      "measures": [
+        {
+          "name": "Net Units",
+          "dataType": "Integer",
+          "expression": "SUM(fact_sales[unit_sales])",
+          "formatString": "0.00"
+        },
+        {
+          "name": "Net Units YoY %",
+          "dataType": "Double",
+          "expression": "\nVAR _first = CALCULATE ( MIN ( dim_date[date] ), ALL ( dim_date ) )\nVAR _start = MIN ( dim_date[date] )\nVAR _end   = MAX ( dim_date[date] )\n\n-- Selection starts in the first year but runs beyond it (e.g. no slicer, or all years)\nVAR _useLatestYTD = _start < EDATE ( _first, 12 ) && _end >= EDATE ( _first, 12 )\n\nVAR _curStart  = IF ( _useLatestYTD, DATE ( YEAR ( _end ), 1, 1 ), _start )\nVAR _prevStart = EDATE ( _curStart, -12 )\n\nVAR _cur =\n    IF (\n        _useLatestYTD,\n        CALCULATE (\n            [Net Units],\n            REMOVEFILTERS ( dim_date ),\n            DATESBETWEEN ( dim_date[date], _curStart, _end )\n        ),\n        [Net Units]\n    )\n\nVAR _prev =\n    IF (\n        _useLatestYTD,\n        CALCULATE (\n            [Net Units],\n            REMOVEFILTERS ( dim_date ),\n            DATESBETWEEN ( dim_date[date], _prevStart, EDATE ( _end, -12 ) )\n        ),\n        CALCULATE ( [Net Units], DATEADD ( dim_date[date], -1, YEAR ) )\n    )\n\nRETURN\n    IF ( _prevStart < _first, BLANK (), DIVIDE ( _cur - _prev, _prev ) )",
+          "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+          "measureTemplate": {
+            "daxTemplateName": "YearOverYear",
+            "version": 0
+          },
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Net Units"
+              }
+            ]
+          }
+        },
+        {
+          "name": "YoY Delta Text",
+          "dataType": "Double",
+          "expression": "\nVAR v = [Net Units YoY %]\nRETURN\n    IF (\n        ISBLANK ( v ),\n        \"No prior year\",\n        IF ( v >= 0, \"▲ \", \"▼ \" ) & FORMAT ( ABS ( v ), \"0.0%\" )\n    )",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Net Units YoY %"
+              }
+            ]
+          }
+        },
+        {
+          "name": "YoY Delta Fill",
+          "dataType": "Double",
+          "expression": "\nVAR v = [Net Units YoY %]\nRETURN\n    SWITCH (\n        TRUE (),\n        ISBLANK ( v ), \"#EBEBEB\",\n        v >= 0, \"#9FD89F\",\n        \"#EEACB2\"\n    )",
+          "formatString": "General Number",
+          "references": {
+            "measures": [
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Net Units YoY %"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

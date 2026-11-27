@@ -1,16 +1,39 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v17",
   "position": {
     "x": 48,
     "y": 618,
-    "z": 17000,
+    "z": 14000,
     "height": 75,
     "width": 246,
-    "tabOrder": 17000
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_store"
+                    }
+                  },
+                  "Property": "store_type"
+                }
+              },
+              "queryRef": "dim_store.store_type",
+              "nativeQueryRef": "store_type",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
     "objects": {
       "data": [
         {
@@ -38,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Filter 4'"
+                  "Value": "'Store Type'"
                 }
               }
             },
@@ -207,6 +230,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "store_type",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }
