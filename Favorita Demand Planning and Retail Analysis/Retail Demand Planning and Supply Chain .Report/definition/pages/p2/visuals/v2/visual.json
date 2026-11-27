@@ -1,16 +1,56 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "v2",
   "position": {
-    "x": 735,
-    "y": 24,
-    "z": 2000,
-    "height": 201,
-    "width": 375,
-    "tabOrder": 2000
+    "x": 870.35130800130582,
+    "y": 24.418673971980525,
+    "z": 1000,
+    "height": 200.58196476984003,
+    "width": 235.46578472981219,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "total sales"
+                }
+              },
+              "queryRef": "_Measures.total sales",
+              "nativeQueryRef": "total sales"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "total sales"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
     "visualContainerObjects": {
       "background": [
         {
