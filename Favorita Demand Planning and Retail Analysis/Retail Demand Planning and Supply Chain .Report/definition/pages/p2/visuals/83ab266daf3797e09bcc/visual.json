@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "0d06ef16b33b66349a3a",
+  "name": "83ab266daf3797e09bcc",
   "position": {
-    "x": 947.0957119132446,
-    "y": 174.41909979986087,
-    "z": 0,
-    "height": 170.93071780386367,
-    "width": 244.18673971980525,
-    "tabOrder": 0
+    "x": 341.96122824395076,
+    "y": 23.183812084335646,
+    "z": 20001,
+    "height": 200.92637139757559,
+    "width": 245.3620112258856,
+    "tabOrder": 20001
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6865",
     "query": {
       "queryState": {
-        "Data": {
+        "content": {
           "projections": [
             {
               "field": {
@@ -24,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Net Units"
+                  "Property": "Card Net Units"
                 }
               },
-              "queryRef": "_Measures.Net Units",
-              "nativeQueryRef": "Net Units"
+              "queryRef": "_Measures.Card Net Units",
+              "nativeQueryRef": "Card Net Units"
             }
           ]
         }
@@ -44,7 +44,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Net Units"
+                "Property": "Card Net Units"
               }
             },
             "direction": "Descending"
@@ -54,92 +54,81 @@
       }
     },
     "objects": {
-      "referenceLabel": [
+      "compatibility": [
         {
           "properties": {
-            "value": {
+            "legacyRendering": {
               "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Schema": "extension",
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "YoY Delta Text"
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Measures.Net Units",
-            "id": "field-25a107d2-6283-23e0-49f2-2db2f0c6dba1",
-            "order": 0
           }
-        },
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
         {
           "properties": {
-            "backgroundShow": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "backgroundTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Net Units"
           }
         }
       ],
-      "referenceLabelLayout": [
+      "background": [
         {
           "properties": {
-            "style": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'tabular'"
+                  "Value": "true"
                 }
               }
             },
-            "arrangement": {
-              "expr": {
-                "Literal": {
-                  "Value": "'rows'"
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Net Units, monthly trend'"
+                }
+              }
+            }
           }
         }
       ]
