@@ -31,34 +31,55 @@
           }
         },
         {
-          "name": "YoY Delta Text",
+          "name": "Sparkline Net Units",
           "dataType": "Double",
-          "expression": "\nVAR v = [Net Units YoY %]\nRETURN\n    IF (\n        ISBLANK ( v ),\n        \"No prior year\",\n        IF ( v >= 0, \"▲ \", \"▼ \" ) & FORMAT ( ABS ( v ), \"0.0%\" )\n    )",
+          "expression": "\nVAR _w = 120\nVAR _h = 36\nVAR _p = 3\nVAR _lastKey =\n    MAXX ( ALL ( dim_date[year], dim_date[month] ), dim_date[year] * 100 + dim_date[month] )\nVAR _m =\n    FILTER (\n        ADDCOLUMNS (\n            SUMMARIZE ( ALL ( dim_date ), dim_date[year], dim_date[month] ),\n            \"MonthKey\", dim_date[year] * 100 + dim_date[month],\n            \"Val\",\n                VAR y = dim_date[year]\n                VAR m = dim_date[month]\n                RETURN\n                    COALESCE (\n                        CALCULATE (\n                            [Net Units],\n                            REMOVEFILTERS ( dim_date ),\n                            dim_date[year] = y,\n                            dim_date[month] = m\n                        ),\n                        0\n                    )\n        ),\n        [MonthKey] < _lastKey\n    )\nVAR _n   = COUNTROWS ( _m )\nVAR _min = MINX ( _m, [Val] )\nVAR _max = MAXX ( _m, [Val] )\nVAR _rng = IF ( _max = _min, 1, _max - _min )\nRETURN\n    CONCATENATEX (\n        _m,\n        FORMAT ( _p + DIVIDE ( RANKX ( _m, [MonthKey], , ASC ) - 1, _n - 1 ) * ( _w - 2 * _p ), \"0.0\", \"en-US\" )\n            & \",\"\n            & FORMAT ( _h - _p - DIVIDE ( [Val] - _min, _rng ) * ( _h - 2 * _p ), \"0.0\", \"en-US\" ),\n        \" \",\n        [MonthKey], ASC\n    )",
           "formatString": "General Number",
           "references": {
             "measures": [
               {
                 "schema": "extension",
                 "entity": "_Measures",
-                "name": "Net Units YoY %"
+                "name": "Net Units"
               }
             ]
           }
         },
         {
-          "name": "YoY Delta Fill",
+          "name": "Card Net Units",
           "dataType": "Double",
-          "expression": "\nVAR v = [Net Units YoY %]\nRETURN\n    SWITCH (\n        TRUE (),\n        ISBLANK ( v ), \"#EBEBEB\",\n        v >= 0, \"#9FD89F\",\n        \"#EEACB2\"\n    )",
+          "expression": "\nVAR _label = \"Net Units\"                                     -- EDIT: card name\nVAR _icon  = \"<path d='M5 20V10M12 20V4M19 20v-7'/>\"         -- EDIT: icon\nVAR _v     = [Net Units]                                     -- EDIT: the KPI measure\nVAR _val   = FORMAT ( DIVIDE ( _v, 1000000000 ), \"0.00\", \"en-US\" ) & \"bn\"   -- EDIT: number format\nVAR _pts   = [Sparkline Net Units]                           -- EDIT: this KPI's sparkline\nVAR _g     = [Net Units YoY %]                               -- EDIT: this KPI's growth measure\n-- ===== below this line: do not edit =====\nVAR _fill  = SWITCH ( TRUE (), ISBLANK ( _g ), \"#EBEBEB\", _g >= 0, \"#9FD89F\", \"#EEACB2\" )\nVAR _txt   = IF ( ISBLANK ( _g ), \"No prior year\",\n                  IF ( _g >= 0, \"▲ \", \"▼ \" ) & FORMAT ( ABS ( _g ), \"0.0%\" ) )\nVAR _ctx   = [YoY Card Label]\nVAR _area  = _pts & \" 117,36 3,36\"\nRETURN\n\"<div style='font-family:Segoe UI,sans-serif;width:100%;height:100vh;box-sizing:border-box;\n             overflow:hidden;display:flex;flex-wrap:wrap;align-content:space-between;\n             align-items:center;gap:6px 12px;'>\n  <div style='display:flex;align-items:center;gap:12px;flex:0 1 auto;min-width:0;'>\n    <div style='flex:none;width:clamp(40px,18vh,56px);height:clamp(40px,18vh,56px);\n                border-radius:12px;background:#D4EDFC;display:flex;\n                align-items:center;justify-content:center;'>\n      <svg viewBox='0 0 24 24' style='width:56%;height:56%;' fill='none' stroke='#0A5599'\n           stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>\" & _icon & \"</svg>\n    </div>\n    <div style='min-width:0;'>\n      <div style='font-size:clamp(14px,6.4vh,18px);color:#616161;white-space:nowrap;\n                  overflow:hidden;text-overflow:ellipsis;'>\" & _label & \"</div>\n      <div style='font-size:clamp(28px,min(20vh,22vw),52px);font-weight:600;color:#242424;\n                  line-height:1.05;white-space:nowrap;'>\" & _val & \"</div>\n    </div>\n  </div>\n  <div style='flex:1 1 90px;min-width:90px;'>\n    <svg viewBox='0 0 120 36' preserveAspectRatio='none'\n         style='display:block;width:100%;height:clamp(32px,16vh,72px);'>\n      <polygon points='\" & _area & \"' fill='#D4EDFC' opacity='0.7'/>\n      <polyline points='\" & _pts & \"' fill='none' stroke='#118DFF' stroke-width='2'\n                stroke-linejoin='round' stroke-linecap='round'\n                vector-effect='non-scaling-stroke'/>\n    </svg>\n  </div>\n  <div style='flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;'>\n    <span style='background:\" & _fill & \";color:#242424;font-size:clamp(13px,6vh,15px);\n                 padding:3px 12px;border-radius:12px;white-space:nowrap;'>\" & _txt & \"</span>\n    <span style='font-size:clamp(12px,5.6vh,14px);color:#616161;'>\" & _ctx & \"</span>\n  </div>\n</div>\"",
           "formatString": "General Number",
           "references": {
             "measures": [
               {
                 "schema": "extension",
                 "entity": "_Measures",
+                "name": "Net Units"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "Sparkline Net Units"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
                 "name": "Net Units YoY %"
+              },
+              {
+                "schema": "extension",
+                "entity": "_Measures",
+                "name": "YoY Card Label"
               }
             ]
           }
+        },
+        {
+          "name": "YoY Card Label",
+          "dataType": "Double",
+          "expression": "\nVAR _first = CALCULATE ( MIN ( dim_date[date] ), ALL ( dim_date ) )\nVAR _start = MIN ( dim_date[date] )\nVAR _end   = MAX ( dim_date[date] )\nRETURN\n    SWITCH (\n        TRUE (),\n        _start < EDATE ( _first, 12 ) && _end >= EDATE ( _first, 12 ), \"Latest YTD vs same period LY\",\n        EDATE ( _start, -12 ) < _first, \"No prior year\",\n        \"vs same period LY\"\n    )",
+          "formatString": "General Number"
         }
       ]
     }

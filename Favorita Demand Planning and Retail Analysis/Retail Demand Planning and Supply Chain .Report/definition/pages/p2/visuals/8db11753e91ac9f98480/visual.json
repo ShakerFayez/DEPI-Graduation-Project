@@ -1,33 +1,34 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "d2b9b6ad70deb97a2511",
+  "name": "8db11753e91ac9f98480",
   "position": {
-    "x": 1398.1151956082226,
-    "y": 23.573926774198306,
-    "z": 21000,
-    "height": 201.28506707200091,
-    "width": 235.73926774198307,
-    "tabOrder": 21000
+    "x": 1128.2788547710013,
+    "y": 23.183812084335646,
+    "z": 20004,
+    "height": 200.92637139757559,
+    "width": 245.3620112258856,
+    "tabOrder": 20004
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6865",
     "query": {
       "queryState": {
-        "Data": {
+        "content": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
+                      "Schema": "extension",
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "total sales"
+                  "Property": "Card Net Units"
                 }
               },
-              "queryRef": "_Measures.total sales",
-              "nativeQueryRef": "total sales"
+              "queryRef": "_Measures.Card Net Units",
+              "nativeQueryRef": "Card Net Units"
             }
           ]
         }
@@ -39,10 +40,11 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
+                    "Schema": "extension",
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "total sales"
+                "Property": "Card Net Units"
               }
             },
             "direction": "Descending"
@@ -51,7 +53,35 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "compatibility": [
+        {
+          "properties": {
+            "legacyRendering": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "background": [
         {
           "properties": {
@@ -67,16 +97,9 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
                 }
               }
             }
@@ -92,86 +115,24 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#d8dedf'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
             }
           }
         }
       ],
-      "dropShadow": [
+      "general": [
         {
           "properties": {
-            "show": {
+            "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'KPI card 2'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#222d2f'"
-                    }
-                  }
+                  "Value": "'Net Units, monthly trend'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

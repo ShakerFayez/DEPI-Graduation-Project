@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "v1",
+  "name": "b146c74d1510c5f7b460",
   "position": {
-    "x": 341.86143560772734,
-    "y": 24.418673971980525,
-    "z": 0,
-    "height": 200.58196476984003,
-    "width": 235.46578472981219,
-    "tabOrder": 0
+    "x": 1651.8466110089148,
+    "y": 23.183812084335646,
+    "z": 20006,
+    "height": 200.38715327585427,
+    "width": 244.91763178159965,
+    "tabOrder": 20006
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6865",
     "query": {
       "queryState": {
-        "Data": {
+        "content": {
           "projections": [
             {
               "field": {
@@ -24,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Net Units YoY %"
+                  "Property": "Card Net Units"
                 }
               },
-              "queryRef": "_Measures.Net Units YoY %",
-              "nativeQueryRef": "Net Units YoY %"
+              "queryRef": "_Measures.Card Net Units",
+              "nativeQueryRef": "Card Net Units"
             }
           ]
         }
@@ -44,7 +44,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Net Units YoY %"
+                "Property": "Card Net Units"
               }
             },
             "direction": "Descending"
@@ -53,7 +53,35 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "compatibility": [
+        {
+          "properties": {
+            "legacyRendering": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "background": [
         {
           "properties": {
@@ -69,16 +97,9 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#ffffff'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
                 }
               }
             }
@@ -94,86 +115,24 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#d8dedf'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
             }
           }
         }
       ],
-      "dropShadow": [
+      "general": [
         {
           "properties": {
-            "show": {
+            "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'KPI card 1'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#222d2f'"
-                    }
-                  }
+                  "Value": "'Net Units, monthly trend'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }
